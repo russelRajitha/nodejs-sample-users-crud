@@ -23,6 +23,8 @@ const storage = multer.diskStorage({
     }
 })
 const avatarsUploader = multer({storage})
+const path = require("path");
+
 con.connect(function (err) {
     if (err) throw err;
 });
@@ -40,6 +42,9 @@ app.get('/', (req, res) => {
         errors: {}
     });
 });
+app.use('/avatars', express.static('avatars'))
+
+
 
 app.get('/users', (req, res) => {
     con.query(`SELECT *,concat('http://localhost:2500/avatars/',avatar) as avatar FROM users`, function (err, result, fields) {
