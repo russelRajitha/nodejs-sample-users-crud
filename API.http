@@ -1,0 +1,22 @@
+POST http://localhost:2500/user
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="avatar"; filename="sample.png"
+
+< /Users/admin/projects/node/users/avatars/sample.png
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+user 2
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="email"
+
+user_2@y.com
+--WebAppBoundary--
+
+###
