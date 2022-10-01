@@ -117,7 +117,14 @@ app.post('/user', avatarsUploader.single('avatar'), (req, res) => {
         });
     });
 });
-
+app.get('*', (req, res) => {
+    res.json({
+        status: statusCodes.error,
+        message: 'Invalid URL.(404)',
+        data: {},
+        errors: {}
+    });
+});
 http.createServer(app).listen(2500);
 
 
